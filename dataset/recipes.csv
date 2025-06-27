@@ -1,0 +1,11 @@
+id_resep,nama_resep,waktu_masak_menit,tingkat_kesulitan,kalori
+R1,Nasi Goreng,15,Mudah,550
+R2,Spaghetti Carbonara,20,Sedang,620
+R3,Sushi,45,Sulit,480
+R4,Tom Yum,30,Sedang,350
+R5,Tacos,25,Mudah,400
+R6,Rendang,180,Sulit,650
+R7,Bibimbap,35,Sedang,500
+R8,Paella,60,Sulit,700
+R9,Pho,45,Sedang,430
+R10,Burger,20,Mudah,600

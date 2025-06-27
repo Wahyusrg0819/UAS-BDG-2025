@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <title>Neo4j Recipe Visualization</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Popoto.js CSS -->
+    <link rel="stylesheet" href="node_modules/popoto/dist/popoto.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="shared.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="ppt-body">
+    <!-- Header Section -->
+    <header class="main-header">
+        <h1>🍳 Neo4j Recipe Database Visualization</h1>
+        <p>Explore recipes, chefs, countries, and categories through interactive graph visualization</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Three Column Layout: Taxonomy | Graph | Results -->
+        <div class="three-column-layout">
+            <!-- Column 1: Taxonomy Sidebar -->
+            <div class="taxonomy-column">
+                <section class="taxonomy-section">
+                    <div class="section-header">
+                        <h3>📊 Data Categories</h3>
+                    </div>
+                    <div id="popoto-taxonomy" class="taxonomy-content">
+                        <!-- Taxonomy will be generated here -->
+                    </div>
+                </section>
+            </div>
+
+            <!-- Column 2: Graph Visualization -->
+            <div class="graph-column">
+                <section class="graph-section">
+                    <div class="section-header">
+                        <h2>Interactive Graph Explorer</h2>
+                        <div class="graph-controls">
+                            <button id="fullscreen-btn" class="control-btn">📱 Fullscreen</button>
+                            <button id="reset-btn" class="control-btn">🔄 Reset</button>
+                        </div>
+                    </div>
+                    
+                    <div class="graph-container-wrapper">
+                        <div id="popoto-graph" class="graph-container">
+                            <!-- Graph will be generated here -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Query Section (below graph) -->
+                <section class="query-section">
+                    <div class="section-header">
+                        <h3>Generated Cypher Query</h3>
+                    </div>
+                    <div class="query-container">
+                        <div class="query-header">
+                            <span id="query-status">No query generated</span>
+                            <div class="query-controls">
+                                <button id="copy-query-btn" class="query-btn" title="Copy query to clipboard">📋 Copy</button>
+                                <button id="expand-query-btn" class="query-btn secondary" title="Expand/Collapse query view">⛶ Expand</button>
+                                <button id="format-query-btn" class="query-btn secondary" title="Format query">✨ Format</button>
+                            </div>
+                        </div>
+                        <div id="popoto-cypher" class="query-display">
+                            <!-- Query will be displayed here -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Column 3: Results Panel -->
+            <div class="results-column">
+                <section class="results-section">
+                    <div class="section-header">
+                        <h3>Search Results <span id="result-count" class="result-count"></span></h3>
+                    </div>
+                    <div id="popoto-results" class="results-container">
+                        <!-- Results will be displayed here -->
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <p>&copy; 2025 Neo4j Recipe Visualization - Built with Popoto.js & D3.js</p>
+    </footer>
+
+    <!-- Loading Modal -->
+    <div id="loading-modal" class="modal">
+        <div class="modal-content">
+            <div class="loading-spinner"></div>
+            <p>Connecting to Neo4j database...</p>
+        </div>
+    </div>
+
+    <!-- Error Modal -->
+    <div id="error-modal" class="modal">
+        <div class="modal-content">
+            <h3>⚠️ Connection Error</h3>
+            <p id="error-message">Unable to connect to Neo4j database. Please check your connection.</p>
+            <button id="retry-btn" class="control-btn">🔄 Retry Connection</button>
+        </div>
+    </div>
+
+    <!-- Required Scripts -->
+    <script src="shared.js" charset="utf-8"></script>
+    <script src="node_modules/d3/dist/d3.min.js" charset="utf-8"></script>
+    <script src="node_modules/neo4j-driver-lite/lib/browser/neo4j-lite-web.min.js" charset="utf-8"></script>
+    <script src="node_modules/popoto/dist/popoto.min.js" charset="utf-8"></script>
+    
+    <!-- Development Debug Script (remove in production) -->
+    <script src="debug.js" charset="utf-8"></script>
+    
+    <script src="script.js" charset="utf-8"></script>
+</body>
+
+</html>

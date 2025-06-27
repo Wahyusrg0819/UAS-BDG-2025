@@ -1,0 +1,1238 @@
+/* Neo4j Recipe Visualization - Custom Styles */
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+/* Header Styles */
+.main-header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+.main-header h1 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+.main-header p {
+    font-size: 0.95rem;
+    color: #7f8c8d;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Main Container */
+.main-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Section Styles */
+.graph-section,
+.query-section,
+.results-section {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.section-header h2,
+.section-header h3 {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.section-header h2 {
+    font-size: 1.4rem;
+}
+
+.section-header h3 {
+    font-size: 1.2rem;
+}
+
+/* Graph Layout with Separate Taxonomy */
+.graph-layout {
+    display: flex;
+    gap: 1rem;
+    height: 600px;
+}
+
+/* Taxonomy Sidebar (Dark Theme) */
+.taxonomy-sidebar {
+    width: 280px;
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.taxonomy-header {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.taxonomy-header h4 {
+    color: #ecf0f1;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+}
+
+.taxonomy-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    max-height: 70vh;
+}
+
+/* Custom Scrollbar for Dark Taxonomy Sidebar */
+.taxonomy-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.taxonomy-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+.taxonomy-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+.taxonomy-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Graph Container Wrapper */
+.graph-container-wrapper {
+    flex: 1;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    background: #fff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Old taxonomy nav styles - keeping for compatibility but will be overridden */
+.taxonomy-nav {
+    width: 250px;
+    background: #f8f9fa;
+    border-right: 1px solid #e9ecef;
+    overflow-y: auto;
+    flex-shrink: 0;
+}
+
+/* Graph Container */
+.graph-container {
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Controls */
+.graph-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.control-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
+}
+
+.control-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+}
+
+.control-btn:active {
+    transform: translateY(0);
+}
+
+/* Query Container */
+.query-container {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1rem;
+    min-height: 100px;
+    font-family: 'Courier New', monospace;
+    white-space: pre-wrap;
+    overflow-x: auto;
+}
+
+/* Results Container */
+.results-container {
+    max-height: 500px;
+    overflow-y: auto;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.result-count {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.2rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Custom Result Cards */
+.recipe-card,
+.chef-card,
+.country-card,
+.category-card {
+    margin: 1rem;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.recipe-card {
+    background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+    border-left-color: #e17055;
+}
+
+.chef-card {
+    background: linear-gradient(135deg, #a8e6cf 0%, #88d8a3 100%);
+    border-left-color: #00b894;
+    position: relative;
+    overflow: hidden;
+}
+
+.chef-card::before {
+    content: '👨‍🍳';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.country-card {
+    background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+    border-left-color: #0984e3;
+    color: white;
+}
+
+.category-card {
+    background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+    border-left-color: #e84393;
+    color: white;
+}
+
+.recipe-card:hover,
+.chef-card:hover,
+.country-card:hover,
+.category-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.recipe-title,
+.chef-name,
+.country-name,
+.category-name {
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.recipe-details,
+.chef-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.recipe-details span,
+.chef-details span {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: white;
+    margin: 10% auto;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #e9ecef;
+    border-top: 4px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Notifications */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    z-index: 1001;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-success {
+    background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
+}
+
+.notification-error {
+    background: linear-gradient(135deg, #e17055 0%, #d63031 100%);
+}
+
+.notification-info {
+    background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Footer */
+.main-footer {
+    text-align: center;
+    padding: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+/* Popoto.js Custom Overrides */
+#popoto-graph .ppt-node-background {
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+}
+
+#popoto-graph .ppt-node-foreground {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+#popoto-cypher {
+    background: #2c3e50 !important;
+    color: #ecf0f1 !important;
+    border-radius: 8px !important;
+    padding: 1rem !important;
+    font-family: 'Courier New', monospace !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    max-height: 200px !important;
+    overflow-y: auto !important;
+    overflow-x: auto !important;
+    white-space: pre-wrap !important;
+    word-break: break-all !important;
+    position: relative !important;
+    border: 1px solid #34495e !important;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    transition: max-height 0.3s ease !important;
+}
+
+/* Enhanced Query Container */
+.query-container {
+    position: relative;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    overflow: hidden;
+}
+
+.query-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background: #e9ecef;
+    border-bottom: 1px solid #dee2e6;
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+.query-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.query-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.query-btn:hover {
+    background: #0056b3;
+}
+
+.query-btn.secondary {
+    background: #6c757d;
+}
+
+.query-btn.secondary:hover {
+    background: #545b62;
+}
+
+/* Expanded state */
+#popoto-cypher.expanded {
+    max-height: 400px !important;
+}
+
+/* Custom scrollbar for query */
+#popoto-cypher::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+#popoto-cypher::-webkit-scrollbar-track {
+    background: #34495e;
+    border-radius: 4px;
+}
+
+#popoto-cypher::-webkit-scrollbar-thumb {
+    background: #7f8c8d;
+    border-radius: 4px;
+}
+
+#popoto-cypher::-webkit-scrollbar-thumb:hover {
+    background: #95a5a6;
+}
+
+/* Syntax highlighting classes for Cypher */
+.cypher-keyword {
+    color: #e74c3c !important;
+    font-weight: bold !important;
+}
+
+.cypher-string {
+    color: #2ecc71 !important;
+}
+
+.cypher-number {
+    color: #f39c12 !important;
+}
+
+.cypher-property {
+    color: #3498db !important;
+}
+
+.cypher-label {
+    color: #9b59b6 !important;
+}
+
+.cypher-operator {
+    color: #e67e22 !important;
+}
+
+/* Query loading state */
+.query-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    color: #6c757d;
+    font-style: italic;
+}
+
+.query-loading::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border: 2px solid #e9ecef;
+    border-top: 2px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 0.5rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Side-by-Side Layout for Graph and Results */
+.graph-results-layout {
+    display: flex;
+    gap: 2rem;
+    min-height: 80vh;
+    align-items: flex-start;
+    position: relative;
+}
+
+.left-panel {
+    flex: 1;
+    min-width: 0; /* Prevent flex item from overflowing */
+    position: relative;
+}
+
+.right-panel {
+    flex: 0 0 400px; /* Fixed width for results panel */
+    min-width: 350px;
+    max-width: 500px;
+    position: relative;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Adjust graph container for side layout */
+.left-panel .graph-container {
+    height: 500px;
+    min-height: 400px;
+}
+
+/* Adjust query container for side layout */
+.left-panel .query-container {
+    min-height: 80px;
+    max-height: 150px;
+}
+
+/* Optimize results container for side panel */
+.right-panel .results-container {
+    height: 600px;
+    max-height: 70vh;
+    overflow-y: auto;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    background: #fff;
+    padding: 1rem;
+}
+
+/* Enhanced Side Layout Features */
+
+/* Splitter between panels (optional future enhancement) */
+.graph-results-layout::before {
+    content: '';
+    position: absolute;
+    right: 400px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, #e9ecef 20%, #e9ecef 80%, transparent);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Panel resize handles */
+/* .left-panel {
+    position: relative;
+}
+
+.right-panel {
+    position: relative;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+} */
+
+/* Scrollbar styling for results container */
+.right-panel .results-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.right-panel .results-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.right-panel .results-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 4px;
+}
+
+.right-panel .results-container::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+}
+
+/* Panel headers with improved styling */
+.left-panel .section-header,
+.right-panel .section-header {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 10;
+    padding: 0.75rem 0;
+    margin: 0 0 0.75rem 0;
+    border-bottom: 2px solid #e9ecef;
+}
+
+/* Empty state for results */
+.results-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    color: #7f8c8d;
+    font-size: 1.1rem;
+}
+
+.results-empty::before {
+    content: '🔍';
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Loading state for results */
+.results-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    color: #7f8c8d;
+}
+
+.results-loading::before {
+    content: '';
+    width: 40px;
+    height: 40px;
+    border: 4px solid #e9ecef;
+    border-top: 4px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+/* Dark Taxonomy Styling */
+.taxonomy-content .ppt-taxo-nav {
+    padding: 0.5rem;
+}
+
+.taxonomy-content .ppt-node {
+    margin: 0.3rem 0;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #ecf0f1;
+    backdrop-filter: blur(5px);
+}
+
+.taxonomy-content .ppt-node:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateX(5px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.taxonomy-content .ppt-node.selected {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: #fff;
+    border-color: #3498db;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.taxonomy-content .ppt-node-label {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: inherit;
+}
+
+.taxonomy-content .ppt-node-count {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.2rem 0.5rem;
+    border-radius: 12px;
+    margin-left: 0.5rem;
+}
+
+.taxonomy-content .ppt-node.selected .ppt-node-count {
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+}
+
+/* Legacy Taxonomy Styling (kept for compatibility) */
+.taxonomy-nav .ppt-taxo-nav {
+    padding: 1rem;
+}
+
+.taxonomy-nav .ppt-node {
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    background: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.taxonomy-nav .ppt-node:hover {
+    background: #e9ecef;
+    border-color: #6c757d;
+}
+
+.taxonomy-nav .ppt-node.selected {
+    background: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+.taxonomy-nav .ppt-node-label {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.taxonomy-nav .ppt-node-count {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* Recipe Taxonomy Specific Styling */
+.recipe-taxonomy .ppt-node {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0.3rem 0;
+    padding: 0.6rem;
+    background: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.recipe-taxonomy .ppt-node:hover {
+    background: #f8f9fa;
+    border-color: #007bff;
+    transform: translateX(2px);
+    box-shadow: 0 2px 4px rgba(0,123,255,0.1);
+}
+
+.recipe-taxonomy .ppt-node.selected,
+.recipe-taxonomy .ppt-node.root {
+    background: #007bff;
+    color: #fff;
+    border-color: #007bff;
+    font-weight: 500;
+}
+
+.recipe-taxonomy .ppt-node-label {
+    flex: 1;
+    font-weight: 500;
+}
+
+.recipe-taxonomy .ppt-node-count {
+    background: rgba(108, 117, 125, 0.1);
+    color: #6c757d;
+    padding: 0.2rem 0.4rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    min-width: 24px;
+    text-align: center;
+}
+
+.recipe-taxonomy .ppt-node.selected .ppt-node-count {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+/* Popoto Taxonomy List Styling */
+.ppt-taxo-ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+}
+
+.ppt-taxo-ul li {
+    margin: 0.4rem 0;
+    padding: 0;
+    background: transparent;
+    position: relative;
+}
+
+.ppt-taxo-ul li .ppt-node {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.7rem;
+    background: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.ppt-taxo-ul li .ppt-node:hover {
+    background: #f8f9fa;
+    border-color: #007bff;
+    transform: translateX(3px);
+    box-shadow: 0 3px 8px rgba(0,123,255,0.15);
+}
+
+.ppt-taxo-ul li .ppt-node.selected,
+.ppt-taxo-ul li .ppt-node.root {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: #fff;
+    border-color: #007bff;
+    font-weight: 500;
+    box-shadow: 0 3px 10px rgba(0,123,255,0.3);
+}
+
+.ppt-taxo-ul li .ppt-node.selected:hover {
+    transform: translateX(3px);
+    box-shadow: 0 4px 12px rgba(0,123,255,0.4);
+}
+
+/* Nested taxonomy levels */
+.ppt-taxo-ul li ul {
+    margin-left: 1rem;
+    margin-top: 0.3rem;
+    padding-left: 0.8rem;
+    border-left: 2px solid #e9ecef;
+}
+
+.ppt-taxo-ul li ul li .ppt-node {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.6rem;
+    background: #f8f9fa;
+    border-color: #e9ecef;
+}
+
+.ppt-taxo-ul li ul li .ppt-node:hover {
+    background: #e9ecef;
+    border-color: #6c757d;
+}
+
+/* Node labels and counts */
+.ppt-taxo-ul .ppt-node-label {
+    flex: 1;
+    font-weight: 500;
+    color: inherit;
+}
+
+.ppt-taxo-ul .ppt-node-count {
+    background: rgba(108, 117, 125, 0.1);
+    color: #6c757d;
+    padding: 0.2rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    min-width: 28px;
+    text-align: center;
+    margin-left: 0.5rem;
+}
+
+.ppt-taxo-ul .ppt-node.selected .ppt-node-count,
+.ppt-taxo-ul .ppt-node.root .ppt-node-count {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+/* Icons for different node types */
+.ppt-taxo-ul .ppt-node[data-label="Recipe"] .ppt-node-label::before {
+    content: "🍳 ";
+    margin-right: 0.3rem;
+}
+
+.ppt-taxo-ul .ppt-node[data-label="Chef"] .ppt-node-label::before {
+    content: "👨‍🍳 ";
+    margin-right: 0.3rem;
+}
+
+.ppt-taxo-ul .ppt-node[data-label="Country"] .ppt-node-label::before {
+    content: "🌍 ";
+    margin-right: 0.3rem;
+}
+
+.ppt-taxo-ul .ppt-node[data-label="Category"] .ppt-node-label::before {
+    content: "🏷️ ";
+    margin-right: 0.3rem;
+}
+
+/* Scrollbar styling for taxonomy */
+.taxonomy-nav::-webkit-scrollbar {
+    width: 6px;
+}
+
+.taxonomy-nav::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.taxonomy-nav::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 10px;
+}
+
+.taxonomy-nav::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Taxonomy Animation and Interaction Enhancements */
+.ppt-taxo-ul li .ppt-node {
+    position: relative;
+    overflow: hidden;
+}
+
+.ppt-taxo-ul li .ppt-node::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.5s;
+}
+
+.ppt-taxo-ul li .ppt-node:hover::before {
+    left: 100%;
+}
+
+/* Loading state for taxonomy */
+.taxonomy-nav.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.taxonomy-nav.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #007bff;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Focus states for accessibility */
+.ppt-taxo-ul li .ppt-node:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
+/* Disabled state */
+.ppt-taxo-ul li .ppt-node.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Three Column Layout */
+.three-column-layout {
+    display: flex;
+    gap: 1.5rem;
+    min-height: 85vh;
+    align-items: flex-start;
+}
+
+/* Column 1: Taxonomy (Left) */
+.taxonomy-column {
+    width: 280px;
+    flex-shrink: 0;
+}
+
+.taxonomy-section {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    border-radius: 12px;
+    padding: 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    height: fit-content;
+    min-height: 600px;
+}
+
+.taxonomy-section .section-header {
+    background: rgba(0, 0, 0, 0.2);
+    margin: 0;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px 12px 0 0;
+}
+
+.taxonomy-section .section-header h3 {
+    color: #ecf0f1;
+    font-size: 1.1rem;
+    margin: 0;
+    text-align: center;
+}
+
+/* Column 2: Graph (Center) */
+.graph-column {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Graph Section dalam 3 kolom layout */
+.graph-column .graph-section {
+    margin-bottom: 1rem;
+}
+
+.graph-column .graph-container-wrapper {
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    background: #fff;
+    overflow: hidden;
+    height: 500px;
+}
+
+.graph-column .graph-container {
+    width: 100%;
+    height: 100%;
+}
+
+/* Query Section dalam 3 kolom layout */
+.graph-column .query-section {
+    margin-bottom: 0;
+}
+
+.graph-column .query-container {
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+/* Column 3: Results (Right) */
+.results-column {
+    width: 350px;
+    flex-shrink: 0;
+}
+
+/* Responsive Design untuk 3 Column Layout */
+@media (max-width: 1400px) {
+    .results-column {
+        width: 300px;
+    }
+    
+    .taxonomy-column {
+        width: 250px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .three-column-layout {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .taxonomy-column,
+    .results-column {
+        width: 100%;
+    }
+    
+    .taxonomy-section {
+        min-height: auto;
+        max-height: 250px;
+    }
+    
+    .taxonomy-content {
+        max-height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .three-column-layout {
+        gap: 0.5rem;
+    }
+    
+    .taxonomy-section {
+        max-height: 200px;
+    }
+    
+    .taxonomy-content {
+        max-height: 150px;
+        padding: 0.5rem;
+    }
+    
+    .graph-column .graph-container-wrapper {
+        height: 400px;
+    }
+    
+    .graph-column .query-container {
+        max-height: 100px;
+    }
+}
+
+/* Responsive Design untuk Chef Cards */
+@media (max-width: 768px) {
+    .chef-card {
+        margin: 0.5rem;
+        padding: 1rem;
+    }
+    
+    .chef-card .chef-name {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .chef-card .chef-details {
+        gap: 0.5rem;
+    }
+    
+    .chef-card .chef-details span {
+        padding: 0.2rem 0.6rem;
+        font-size: 0.8rem;
+    }
+    
+    .chef-card::before {
+        font-size: 1.5rem;
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+}
+
+/* Loading State untuk Chef Cards */
+.chef-card.loading {
+    background: linear-gradient(135deg, #e0e0e0 0%, #f0f0f0 100%);
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.6;
+    }
+}
+
+/* Empty State untuk Chef Results */
+.chef-results-empty {
+    text-align: center;
+    padding: 2rem;
+    color: #636e72;
+}
+
+.chef-results-empty::before {
+    content: '👨‍🍳';
+    display: block;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.chef-results-empty::after {
+    content: 'No chefs found matching your criteria';
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 500;
+}

@@ -1,0 +1,11 @@
+id_resep,nama_resep,waktu_masak_menit,asal_masakan,nama_koki,kebangsaan_koki,tahun_lahir_koki,tingkat_kesulitan,kalori,kategori
+R1,Nasi Goreng,15,Indonesia,Chef Juna,Indonesia,1980,Mudah,550,Makan Siang
+R2,Spaghetti Carbonara,20,Italia,Gordon Ramsay,UK,1966,Sedang,620,Makan Malam
+R3,Sushi,45,Jepang,Nobu Matsuhisa,Jepang,1949,Sulit,480,Makan Siang
+R4,Tom Yum,30,Thailand,Jet Tila,Thailand,1975,Sedang,350,Makan Malam
+R5,Tacos,25,Meksiko,Rick Bayless,USA,1963,Mudah,400,Makan Siang
+R6,Rendang,180,Indonesia,William Wongso,Indonesia,1947,Sulit,650,Hari Raya
+R7,Bibimbap,35,Korea,Maangchi,Korea,1957,Sedang,500,Makan Siang
+R8,Paella,60,Spanyol,Jose Andres,Spanyol,1969,Sulit,700,Makan Malam
+R9,Pho,45,Vietnam,Luke Nguyen,Vietnam,1978,Sedang,430,Makan Malam
+R10,Burger,20,Amerika,Guy Fieri,USA,1968,Mudah,600,Makan Cepat

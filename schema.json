@@ -1,0 +1,206 @@
+{
+  "Chef": {
+    "count": 10,
+    "labels": [],
+    "properties": {
+      "kebangsaan": {
+        "unique": false,
+        "indexed": false,
+        "type": "STRING",
+        "existence": false
+      },
+      "nama": {
+        "unique": false,
+        "indexed": false,
+        "type": "STRING",
+        "existence": false
+      },
+      "tahun_lahir": {
+        "unique": false,
+        "indexed": false,
+        "type": "INTEGER",
+        "existence": false
+      }
+    },
+    "type": "node",
+    "relationships": {
+      "CREATED_BY": {
+        "count": 10,
+        "direction": "in",
+        "labels": [
+          "Recipe"
+        ],
+        "properties": {
+
+        }
+      },
+      "FROM_COUNTRY": {
+        "count": 0,
+        "direction": "out",
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+
+        }
+      }
+    }
+  },
+  "CREATED_BY": {
+    "count": 10,
+    "properties": {
+
+    },
+    "type": "relationship"
+  },
+  "Category": {
+    "count": 4,
+    "labels": [],
+    "properties": {
+      "nama": {
+        "unique": false,
+        "indexed": false,
+        "type": "STRING",
+        "existence": false
+      }
+    },
+    "type": "node",
+    "relationships": {
+      "BELONGS_TO": {
+        "count": 10,
+        "direction": "in",
+        "labels": [
+          "Recipe"
+        ],
+        "properties": {
+
+        }
+      }
+    }
+  },
+  "Recipe": {
+    "count": 10,
+    "labels": [],
+    "properties": {
+      "id": {
+        "unique": false,
+        "indexed": false,
+        "type": "STRING",
+        "existence": false
+      },
+      "kalori": {
+        "unique": false,
+        "indexed": false,
+        "type": "INTEGER",
+        "existence": false
+      },
+      "waktu_masak": {
+        "unique": false,
+        "indexed": false,
+        "type": "INTEGER",
+        "existence": false
+      },
+      "nama": {
+        "unique": false,
+        "indexed": false,
+        "type": "STRING",
+        "existence": false
+      },
+      "tingkat_kesulitan": {
+        "unique": false,
+        "indexed": false,
+        "type": "STRING",
+        "existence": false
+      }
+    },
+    "type": "node",
+    "relationships": {
+      "CREATED_BY": {
+        "count": 0,
+        "direction": "out",
+        "labels": [
+          "Chef"
+        ],
+        "properties": {
+
+        }
+      },
+      "ORIGINATED_FROM": {
+        "count": 0,
+        "direction": "out",
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+
+        }
+      },
+      "BELONGS_TO": {
+        "count": 0,
+        "direction": "out",
+        "labels": [
+          "Category"
+        ],
+        "properties": {
+
+        }
+      }
+    }
+  },
+  "ORIGINATED_FROM": {
+    "count": 10,
+    "properties": {
+
+    },
+    "type": "relationship"
+  },
+  "FROM_COUNTRY": {
+    "count": 10,
+    "properties": {
+
+    },
+    "type": "relationship"
+  },
+  "Country": {
+    "count": 11,
+    "labels": [],
+    "properties": {
+      "nama": {
+        "unique": false,
+        "indexed": false,
+        "type": "STRING",
+        "existence": false
+      }
+    },
+    "type": "node",
+    "relationships": {
+      "ORIGINATED_FROM": {
+        "count": 10,
+        "direction": "in",
+        "labels": [
+          "Recipe"
+        ],
+        "properties": {
+
+        }
+      },
+      "FROM_COUNTRY": {
+        "count": 10,
+        "direction": "in",
+        "labels": [
+          "Chef"
+        ],
+        "properties": {
+
+        }
+      }
+    }
+  },
+  "BELONGS_TO": {
+    "count": 10,
+    "properties": {
+
+    },
+    "type": "relationship"
+  }
+}
