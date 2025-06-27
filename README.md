@@ -14,6 +14,18 @@ Project ini adalah aplikasi visualisasi database Neo4j yang fokus pada data rese
 - ⚡ **Performance Optimized**: Lazy loading, debounced search, memory management
 - 🛡️ **Error Handling**: Comprehensive error handling dengan user-friendly messages
 
+## 📸 Screenshot
+
+![Neo4j Recipe Database Visualization Interface](image.png)
+
+*Tampilan utama aplikasi menunjukkan three-column layout dengan taxonomy sidebar (kiri), interactive graph explorer (tengah), dan search results panel (kanan). Interface menggunakan modern glassmorphism design dengan gradient background yang menarik.*
+
+### Key Interface Features:
+- **📊 Data Categories Panel**: Navigasi taxonomy untuk Recipe, Chef, Country, dan Category
+- **🔍 Interactive Graph Explorer**: Visualisasi graph dengan drag-and-drop nodes dan fullscreen mode
+- **📋 Search Results**: Real-time search results dengan rich card display
+- **💻 Generated Cypher Query**: Auto-generated query dengan syntax highlighting
+
 ## 🛠️ Tech Stack
 
 - **Frontend**: HTML5, CSS3, JavaScript ES6+
