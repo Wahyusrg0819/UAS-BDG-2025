@@ -546,14 +546,14 @@ Sample recipe data is created for educational purposes. Real-world usage should 
 ## 👥 Team & Credits
 
 ### Development Team
-- **Lead Developer**: [Your Name]
+- **Lead Developer**: Wahyu Muliadi Siregar
 - **Course**: Basis Data Grafik - Semester 6  
-- **Institution**: [Your University Name]
+- **Institution**: Universitas Islam Riau
 - **Semester**: Genap 2024/2025
 
 ### Project Statistics
 - **Lines of Code**: ~1,500+ lines
-- **Development Time**: 4+ weeks
+- **Development Time**: 3 days
 - **Files**: 12 core files
 - **Dependencies**: 4 main libraries
 - **Features**: 15+ major features
