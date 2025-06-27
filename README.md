@@ -487,7 +487,7 @@ MemoryMonitor.logUsage('after-data-load')
 2. **Clone your fork**:
    ```bash
    git clone https://github.com/Wahyusrg0819/UAS-BDG-2025.git
-   cd neo4j-recipe-visualization
+   cd UAS-BDG-2025
    ```
 3. **Create feature branch**:
    ```bash
